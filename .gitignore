@@ -1,0 +1,15 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+app/build
+af_mvp/build
+af_recycled/build
+af_refresh/build
+af_statelayout/build
+af_ui/build
+af_utility/build
+/captures
+.externalNativeBuild
