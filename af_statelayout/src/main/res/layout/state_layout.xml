@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hanzx.statelayout.state.StateView
+    android:id="@+id/state_view_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/state_height"
+    android:background="@color/state_config_color_white"
+    app:sv_message_text="通过右上角的菜单来切换我的不同状态"/>

@@ -1,0 +1,11 @@
+<resources>
+
+    <declare-styleable name="StateView">
+        <attr name="sv_show_loading" format="boolean"/>
+        <attr name="sv_message_text" format="string"/>
+        <attr name="sv_btn_text" format="string"/>
+    </declare-styleable>
+
+    <attr name="state_config_color_gray" format="color"/>
+    <attr name="state_height" format="dimension"/>
+</resources>

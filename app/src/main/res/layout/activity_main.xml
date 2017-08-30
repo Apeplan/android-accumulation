@@ -1,35 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/root_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="40dp"
+    android:padding="10dp"
     tools:context="com.hanzx.framework.MainActivity">
 
-    <Button
-        android:id="@+id/hello"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:onClick="log"
-        android:text="日志"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/hello"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="log"
+            android:text="日志"/>
+
+        <Button
+            android:id="@+id/permission"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="permission"
+            android:text="权限"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/empty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="empty"
+            android:text="空"/>
+
+        <Button
+            android:id="@+id/net_error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="net_error"
+            android:text="网络异常"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="error"
+            android:text="错误"/>
+
+        <Button
+            android:id="@+id/loading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="load"
+            android:text="加载"/>
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/permission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:onClick="permission"
-        android:text="权限"/>
+        android:onClick="content"
+        android:text="显示内容"/>
 
-    <Button
-        android:id="@+id/hey"
+    <LinearLayout
+        android:id="@+id/ll_state_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="click"
-        android:text="hey"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/blue_500"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="测试状态页面-"/>
+
+    </LinearLayout>
 
 </LinearLayout>
