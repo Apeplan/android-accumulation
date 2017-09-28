@@ -31,5 +31,4 @@ dependencies {
     implementation project(':af_refresh')
     implementation project(':af_statelayout')
     implementation project(':af_ui')
-    implementation project(':af_utility')
 }

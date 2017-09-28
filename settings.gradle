@@ -1,1 +1,1 @@
-include ':app', ':af_utility', ':af_ui', ':af_recycled', ':af_statelayout', ':af_refresh', ':af_mvp'
+include ':app', ':af_utility', ':af_ui', ':af_recycled', ':af_statelayout', ':af_refresh', ':af_mvp', ':af_permission'
