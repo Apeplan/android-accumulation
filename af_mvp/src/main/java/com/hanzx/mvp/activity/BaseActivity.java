@@ -2,18 +2,12 @@ package com.hanzx.mvp.activity;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import com.hanzx.mvp.permission.Permission;
-import com.hanzx.mvp.permission.PermissionCallback;
-import com.hanzx.mvp.permission.RxPermissions;
-
 import rx.Subscription;
-import rx.functions.Action1;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -26,7 +20,6 @@ import rx.subscriptions.CompositeSubscription;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private RxPermissions mRxPermissions;
     private CompositeSubscription mCompositeSubscription;
 
     @Override
@@ -49,9 +42,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             initData();
             setListener();
         }
-
-        mRxPermissions = new RxPermissions(this);
-        mRxPermissions.setLogging(true);
     }
 
     /**
@@ -128,66 +118,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public Activity getActivity() {
         return this;
-    }
-
-    /**
-     * 申请权限
-     *
-     * @param callback    申请结果回调
-     * @param permissions 权限
-     */
-    public final void requestPermission(@Nullable final PermissionCallback callback,
-                                        final String... permissions) {
-        if (null == permissions || permissions.length == 0) {
-            return;
-        }
-
-        // 先判断是否需要申请权限
-        boolean needGranted = false;
-        // 判断权限
-        needGranted = !checkPermissionsIsGranted(permissions);
-        // 先判断系统版本
-        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            if (null != callback) {
-                callback.onGranted(permissions);
-            }
-            return;
-        }
-
-        if (needGranted) {
-            boolean needAlert = false;
-            for (String permission : permissions) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
-                    needAlert = true;
-                    break;
-                }
-            }
-            final boolean finalNeedAlert = needAlert;
-
-            mRxPermissions.requestEach(permissions)
-                    .subscribe(new Action1<Permission>() {
-                @Override
-                public void call(Permission permission) {
-                    if (permission.granted) {
-                        if (null != callback) {
-                            callback.onGranted(permissions);
-                        }
-                    } else if (permission.shouldShowRequestPermissionRationale) {
-                        if (null != callback) {
-                            callback.onBeforeGranted(finalNeedAlert, permissions);
-                        }
-                    } else {
-                        if (null != callback) {
-                            callback.onDenied(permissions);
-                        }
-                    }
-                }
-            });
-        } else {
-            if (null != callback) {
-                callback.onGranted(permissions);
-            }
-        }
     }
 
     /**
