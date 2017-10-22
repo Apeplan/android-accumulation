@@ -19,9 +19,9 @@ import com.hanzx.permission.R;
 
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 14:24
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public class AppSettingsDialog implements Parcelable {

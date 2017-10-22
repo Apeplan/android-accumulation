@@ -4,9 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 12:12
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 class LowApiPermissionsHelper extends PermissionHelper<Object> {

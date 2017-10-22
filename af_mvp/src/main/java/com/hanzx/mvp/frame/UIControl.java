@@ -6,9 +6,9 @@ import android.support.annotation.StringRes;
 /**
  * describe: 更新界面相关的方法
  *
- * @author Hanzx
+ * @author Hanzhx
  * @date 2017/8/27
- * @email hanzx1024@gmail.com
+ * @email iHanzhx@gmail.com
  */
 
 public interface UIControl {

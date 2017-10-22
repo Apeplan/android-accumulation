@@ -6,9 +6,9 @@ import android.support.annotation.NonNull;
 import com.hanzx.permission.dialog.RationaleDialogFragment;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 14:40
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public abstract class BaseFrameworkPermissionsHelper<T> extends PermissionHelper<T> {

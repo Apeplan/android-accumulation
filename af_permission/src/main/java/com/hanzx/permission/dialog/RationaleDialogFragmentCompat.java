@@ -11,9 +11,9 @@ import android.support.v7.app.AppCompatDialogFragment;
 import com.hanzx.permission.PermissionCallbacks;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 14:21
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)

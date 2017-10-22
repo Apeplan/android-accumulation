@@ -7,9 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 12:17
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 class ActivityPermissionHelper extends BaseFrameworkPermissionsHelper<Activity> {

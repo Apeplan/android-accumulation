@@ -12,9 +12,9 @@ import com.hanzx.statelayout.state.StateViewHelper;
 /**
  * 页面状态切换控制类：网络异常、出错了、空、加载中
  * <p>
- * Created by: Simon
- * Email: simon.han0220@gmail.com
+ * Created by: Hanzhx
  * Created on: 2015/8/28 10:46
+ * Email: iHanzhx@gmail.com
  */
 
 public class StateViewControl {

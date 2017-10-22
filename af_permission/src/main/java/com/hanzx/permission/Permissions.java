@@ -20,9 +20,9 @@ import java.util.List;
 /**
  * 运行时权限请求
  * <p>
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 11:31
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public class Permissions {

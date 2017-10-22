@@ -24,9 +24,9 @@ import android.util.AttributeSet;
 /**
  * describe:
  *
- * @author Hanzx
- * @date 2017/8/28
- * @email hanzx1024@gmail.com
+ * Created by: Hanzhx
+ * Created on: 2017/8/28
+ * Email: iHanzhx@gmail.com
  */
 
 public class CircleImageView extends AppCompatImageView {

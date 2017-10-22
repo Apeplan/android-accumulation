@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by: Simon
- * Email: simon.han0220@gmail.com
+ * Created by: iHanzhx
  * Created on: 2015/10/25 13:38
+ * Email: iHanzhx@gmail.com
  */
 
 public class StateReplaceHelperImpl implements StateViewHelper {

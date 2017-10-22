@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentManager;
 import com.hanzx.permission.dialog.RationaleDialogFragmentCompat;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 12:13
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public abstract class BaseSupportPermissionsHelper<T> extends PermissionHelper<T> {

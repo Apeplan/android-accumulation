@@ -4,9 +4,9 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 /**
- * @author yexiuliang
- * @page
- * @data 2017-03-20
+ * Created by: Hanzhx
+ * Created on: 2017/3/20 10:12
+ * Email: iHanzhx@gmail.com
  */
 
 public class ConvertUtils {

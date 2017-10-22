@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * describe:
  *
- * @author Hanzx
+ * @author Hanzhx
  * @date 2017/8/27
- * @email hanzx1024@gmail.com
+ * @email iHanzhx@gmail.com
  */
 
 public abstract class BaseApplication extends Application {

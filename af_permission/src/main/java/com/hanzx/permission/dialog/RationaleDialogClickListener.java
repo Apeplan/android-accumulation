@@ -12,9 +12,9 @@ import com.hanzx.permission.helper.PermissionHelper;
 import java.util.Arrays;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 14:19
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 class RationaleDialogClickListener implements Dialog.OnClickListener {

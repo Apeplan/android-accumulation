@@ -1,4 +1,4 @@
-package com.hanzx.mvp.activity;
+package com.hanzx.mvp.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/27 18:42
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public abstract class BasicFragment extends Fragment implements View.OnClickListener {

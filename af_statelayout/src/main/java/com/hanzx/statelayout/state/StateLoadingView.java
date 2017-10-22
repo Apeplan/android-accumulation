@@ -17,9 +17,9 @@ import com.hanzx.statelayout.R;
 /**
  * 显示 Loading 的 {@link View}，支持颜色和大小的设置。
  * <p>
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/8/30 11:45
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public class StateLoadingView extends View {

@@ -12,9 +12,9 @@ import android.support.annotation.StringRes;
 import com.hanzx.permission.PermissionCallbacks;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 14:19
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)

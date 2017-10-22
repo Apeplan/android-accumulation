@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 
 /**
- * Created by: Simon
- * Email: simon.han0220@gmail.com
+ * Created by: Hanzhx
  * Created on: 2015/8/28 10:42
+ * Email: iHanzhx@gmail.com
  */
 
 public interface StateViewHelper {

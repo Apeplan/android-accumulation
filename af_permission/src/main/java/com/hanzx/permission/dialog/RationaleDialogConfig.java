@@ -8,9 +8,9 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 14:18
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 class RationaleDialogConfig {

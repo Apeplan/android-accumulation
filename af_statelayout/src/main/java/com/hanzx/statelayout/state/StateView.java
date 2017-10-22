@@ -17,9 +17,9 @@ import com.hanzx.statelayout.R;
 /**
  * 状态页
  *
- * @author Hanzx
- * @date 2017/8/27
- * @email hanzx1024@gmail.com
+ * Created by: iHanzhx
+ * Created on: 2017/8/27
+ * Email: iHanzhx@gmail.com
  */
 
 public class StateView extends FrameLayout {

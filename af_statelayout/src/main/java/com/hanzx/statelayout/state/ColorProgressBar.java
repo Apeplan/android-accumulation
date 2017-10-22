@@ -10,9 +10,9 @@ import android.widget.ProgressBar;
 import com.hanzx.statelayout.R;
 
 /**
- * Created by: Simon
+ * Created by: Hanzhx
  * Created on: 2017/8/15 15:34
- * Email: hanzx1024@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public class ColorProgressBar extends ProgressBar {

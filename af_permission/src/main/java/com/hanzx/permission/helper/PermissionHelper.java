@@ -13,9 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.List;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 11:41
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 @RestrictTo(Scope.LIBRARY)
 public abstract class PermissionHelper<T> {

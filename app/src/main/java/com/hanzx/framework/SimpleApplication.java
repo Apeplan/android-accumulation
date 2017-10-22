@@ -11,9 +11,9 @@ import com.hanzx.utility.L.DebugTree;
 /**
  * describe:
  *
- * @author Simon
- * @date 2017/8/27
- * @email hanzx1024@gmail.com
+ * Created by:  iHanzhx
+ * Created on: 2017/8/27
+ * Email: iHanzhx@gmail.com
  */
 
 public class SimpleApplication extends Application {

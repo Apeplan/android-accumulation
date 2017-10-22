@@ -7,9 +7,9 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
 /**
- * Created by: Simon
- * Email: simon.han0220@gmail.com
+ * Created by: iHanzhx
  * Created on: 2015/10/25 13:44
+ * Email: iHanzhx@gmail.com
  */
 
 public class StateCoverHelperImpl implements StateViewHelper {

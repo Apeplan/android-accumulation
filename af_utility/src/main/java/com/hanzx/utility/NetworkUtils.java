@@ -16,9 +16,9 @@ import java.util.List;
  *
  * @code <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
  * </p>
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/8/26 15:37
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public class NetworkUtils {

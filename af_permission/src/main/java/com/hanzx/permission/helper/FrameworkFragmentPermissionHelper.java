@@ -9,9 +9,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 
 /**
- * Created by: Hanzx
+ * Created by: Hanzhx
  * Created on: 2017/9/3 12:18
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 class FrameworkFragmentPermissionHelper extends BaseFrameworkPermissionsHelper<Fragment> {

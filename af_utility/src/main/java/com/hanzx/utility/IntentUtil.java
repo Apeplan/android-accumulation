@@ -12,7 +12,11 @@ import android.support.v4.app.Fragment;
 import java.io.File;
 
 /**
- * @author yexiuliang
+ * describe:
+ *
+ * @author Hanzhx
+ * @date 2017/9/27 18:00
+ * @email iHanzhx@gmail.com
  */
 public class IntentUtil {
 

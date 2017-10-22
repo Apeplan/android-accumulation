@@ -12,9 +12,9 @@ import java.util.TimeZone;
 /**
  * 时间处理工具
  * <p>
- * Created by: Hanzx
+ * Created by: iHanzhx
  * Created on: 2017/8/26 16:24
- * Email: hanzhanxi@gmail.com
+ * Email: iHanzhx@gmail.com
  */
 
 public class TimeUtils {
