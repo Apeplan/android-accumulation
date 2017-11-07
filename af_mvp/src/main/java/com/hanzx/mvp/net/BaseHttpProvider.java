@@ -70,7 +70,7 @@ public class BaseHttpProvider implements HttpProvider {
         return true;
     }
 
-    private class BaseRequestHandler implements RequestHandler{
+    private class BaseRequestHandler implements RequestHandler {
 
         @Override
         public Request onBeforeRequest(Request request, Interceptor.Chain chain) {

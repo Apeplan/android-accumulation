@@ -19,11 +19,15 @@ public interface UIControl {
 
     /**
      * 出错了
+     *
+     * @param e 异常信息
      */
     void showError(Exception e);
 
     /**
      * 网络错误，网络异常
+     *
+     * @param msg 网络异常提示语
      */
     void showNetException(String msg);
 

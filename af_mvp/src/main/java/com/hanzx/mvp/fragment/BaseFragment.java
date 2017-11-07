@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by: Hanzhx
- * Created on: 2017/9/27 18:42
- * Email: iHanzhx@gmail.com
+ * @author : Hanzhx
+ * @date : 2017/9/27 18:42
+ * @email : iHanzhx@gmail.com
  */
 
-public abstract class BasicFragment extends Fragment implements View.OnClickListener {
+public abstract class BaseFragment extends Fragment implements View.OnClickListener {
     protected final String TAG = this.getClass().getSimpleName();
     /**
      * 是否输出日志信息
@@ -60,7 +60,8 @@ public abstract class BasicFragment extends Fragment implements View.OnClickList
     /**
      * 初始化一些非View控件的操作，如果Presenter、ToolBar
      */
-    protected void initObjects(){}
+    protected void initObjects() {
+    }
 
     /**
      * 初始化数据，业务操作

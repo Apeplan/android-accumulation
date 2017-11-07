@@ -1,73 +1,129 @@
 package com.hanzx.mvp.activity;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.hanzx.mvp.BuildConfig;
 
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
 /**
- * describe:
- *
- * @author Hanzhx
- * @date 2017/8/27
- * @email iHanzhx@gmail.com
+ * @author : Hanzhx
+ * @date : 2017/9/27 18:26
+ * @email : iHanzhx@gmail.com
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
-
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+    protected final String TAG = this.getClass().getSimpleName();
+    /**
+     * 是否允许全屏
+     **/
+    private boolean mAllowFullScreen = true;
+    /**
+     * 是否禁止旋转屏幕
+     **/
+    private boolean mAllowScreenRotate = false;
+    /**
+     * 当前Activity渲染的视图View
+     **/
+    private View mContextView = null;
+    /**
+     * 是否输出日志信息
+     **/
+    private boolean mIsDebug;
+    /**
+     * 订阅
+     */
     private CompositeSubscription mCompositeSubscription;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         // 防止重建时fragment恢复
         if (null != savedInstanceState) {
             String FRAGMENTS_TAG = "android:support:fragments";
             savedInstanceState.remove(FRAGMENTS_TAG);
         }
         super.onCreate(savedInstanceState);
-        beforeSetContentView();
-        setContentView(getContentViewLayoutId());
-        afterSetContentView();
-        onInstanceStateRestore(savedInstanceState);
+        mIsDebug = BuildConfig.DEBUG;
+        log(TAG + "\tonCreate()");
+        try {
+            Bundle bundle = getIntent().getExtras();
+            initParams(bundle);
+            mContextView = LayoutInflater.from(this).inflate(bindLayout(), null);
 
-        if (isDefCallSequence()) {
-            parseBundle(getIntent().getExtras());
-            bindViews();
-            initObjs();
-            initData();
+            if (mAllowFullScreen) {
+                this.getWindow().setFlags(
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                requestWindowFeature(Window.FEATURE_NO_TITLE);
+            }
+
+            beforeSetContentView();
+
+            setContentView(mContextView);
+
+            afterSetContentView();
+
+            if (!mAllowScreenRotate) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            } else {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            }
+
+            bindViews(mContextView);
+            initObjects();
+            initData(this);
             setListener();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     /**
-     * 返回页面布局资源id
+     * 初始化Bundle参数
      *
-     * @return 布局ResId
+     * @param params 参数
      */
-    protected abstract int getContentViewLayoutId();
+    public abstract void initParams(Bundle params);
 
     /**
-     * 绑定View控件 {@link AppCompatActivity#findViewById(int)}
+     * 绑定XML布局id
+     *
+     * @return
      */
-    protected abstract void bindViews();
+    public abstract int bindLayout();
+
+    /**
+     * 绑定控件
+     *
+     * @param view
+     */
+    public abstract void bindViews(final View view);
 
     /**
      * 初始化一些非View控件的操作，如果Presenter、ToolBar
      */
-    protected abstract void initObjs();
+    protected void initObjects() {
+    }
 
     /**
-     * 数据初始化
+     * 初始化数据，业务操作
+     *
+     * @param mContext
      */
-    protected abstract void initData();
+    public abstract void initData(Context mContext);
 
     /**
-     * 设置点击事件
+     * 设置点击事件，在{@link #initData(Context)}之后调用
      */
     protected void setListener() {
     }
@@ -87,55 +143,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 页面状态恢复工作 {@link AppCompatActivity#onRestoreInstanceState(Bundle)}
-     *
-     * @param savedInstanceState Bundle
-     */
-    protected void onInstanceStateRestore(Bundle savedInstanceState) {
-    }
+     * View点击
+     **/
+    public abstract void widgetClick(View v);
 
-    /**
-     * 是否使用基类方法默认调用顺序
-     *
-     * @return true 使用默认调用顺序
-     */
-    protected boolean isDefCallSequence() {
-        return true;
-    }
-
-    /**
-     * 解析传过来的参数
-     *
-     * @param extras Bundle
-     */
-    protected void parseBundle(Bundle extras) {
-    }
-
-    /**
-     * 获取Activity对象,返回当前的Activity实例
-     *
-     * @return 返回当前的Activity实例
-     */
-    public Activity getActivity() {
-        return this;
-    }
-
-    /**
-     * 检查权限是否已经授权
-     *
-     * @param permissionGroup 要申请的权限
-     * @return true已授权, false有未授权的权限
-     */
-    public final boolean checkPermissionsIsGranted(String... permissionGroup) {
-        if (permissionGroup != null) {
-            for (String permission : permissionGroup) {
-                if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager
-                        .PERMISSION_GRANTED) {
-                    return false;
-                }
-            }
+    @Override
+    public void onClick(View v) {
+        if (fastClick()) {
+            widgetClick(v);
         }
-        return true;
     }
 
     /**
@@ -159,4 +175,103 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 页面跳转
+     *
+     * @param clz
+     */
+    public void startActivity(Class<?> clz) {
+        startActivity(clz, null);
+    }
+
+    /**
+     * 携带数据的页面跳转
+     *
+     * @param clz
+     * @param bundle
+     */
+    public void startActivity(Class<?> clz, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(this, clz);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T extends View> T view(int resId) {
+        return (T) super.findViewById(resId);
+    }
+
+    /**
+     * 含有Bundle通过Class打开编辑界面
+     *
+     * @param cls
+     * @param bundle
+     * @param requestCode
+     */
+    public void startActivityForResult(Class<?> cls, Bundle bundle, int requestCode) {
+        Intent intent = new Intent();
+        intent.setClass(this, cls);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        log(TAG + "--->onResume()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        log(TAG + "--->onDestroy()");
+    }
+
+    /**
+     * 是否允许全屏
+     *
+     * @param allowFullScreen true 允许
+     */
+    public void setAllowFullScreen(boolean allowFullScreen) {
+        this.mAllowFullScreen = allowFullScreen;
+    }
+
+    /**
+     * 是否允许屏幕旋转
+     *
+     * @param allowScreenRotate true 允许旋转
+     */
+    public void setScreenRotate(boolean allowScreenRotate) {
+        this.mAllowScreenRotate = allowScreenRotate;
+    }
+
+    /**
+     * 日志输出
+     *
+     * @param msg 日志内容
+     */
+    protected void log(String msg) {
+        if (mIsDebug) {
+            Log.d(TAG, msg);
+        }
+    }
+
+    /**
+     * 防止快速点击
+     *
+     * @return
+     */
+    private boolean fastClick() {
+        long lastClick = 0;
+        if (System.currentTimeMillis() - lastClick <= 1000) {
+            return false;
+        }
+        lastClick = System.currentTimeMillis();
+        return true;
+    }
 }

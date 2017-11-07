@@ -11,5 +11,10 @@ import android.content.Context;
  */
 
 public interface BaseView {
+    /**
+     * 返回 Context 实例
+     *
+     * @return 上下文环境Context
+     */
     Context getContext();
 }
